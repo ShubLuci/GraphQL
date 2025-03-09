@@ -10,6 +10,11 @@ const resolvers = {
         },
         review() {
             return reviews;
+        },
+
+        // handle query variables
+        reviews(_,args) {
+            return reviews.find((data) => data.id == args.id)
         }
     }
 }

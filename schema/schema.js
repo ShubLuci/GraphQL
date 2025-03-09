@@ -19,6 +19,8 @@ const typeDefs = `#graphql
 
     type Query {
         review: [Review]
+        # Pass id in the new key via query variables.
+        reviews(id: ID!): Review
         game: [Game]
         author: [Author]
     }
