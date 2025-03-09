@@ -7,13 +7,13 @@ const typeDefs = `#graphql
 
     type Review {
         id: ID!
-        rating: Int!,
+        rating: Int!
         content: String!
     }
 
     type Author {
         id: ID!
-        name: String!,
+        name: String!
         verified: Boolean!
     }
 
@@ -22,7 +22,10 @@ const typeDefs = `#graphql
         # Pass id in the new key via query variables.
         reviews(id: ID!): Review
         game: [Game]
+        games(id: ID!): Game
         author: [Author]
+        authors(id: ID!): Author
+
     }
 `;
 

@@ -15,6 +15,12 @@ const resolvers = {
         // handle query variables
         reviews(_,args) {
             return reviews.find((data) => data.id == args.id)
+        },
+        games(_,args) {
+            return games.find((data) => data.id == args.id)
+        },
+        authors(_,args) {
+            return authors.find((data) => data.id == args.id)
         }
     }
 }
