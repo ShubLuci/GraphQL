@@ -2,7 +2,7 @@ const typeDefs = `#graphql
     
     #Defining schema for Region table
     type Region {
-        id: ID!
+        id: ID!,
         name: String
     }
 
@@ -60,11 +60,11 @@ const typeDefs = `#graphql
     # Define the Query object and keys that will be used as Object and function names in resolvers file.
     type Query {
         # Define the return data type for regions function
-        regions: [Region]
+        regions: [Region],
         # Define the return data type for countries function
-        countries: [Country]
+        countries: [Country],
         # Define the return data type for states function
-        states: [State]
+        states: [State],
         # Define the return data type for cities function
         cities: [City]
     }
