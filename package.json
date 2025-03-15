@@ -1,0 +1,30 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "GraphQL implementation with Apollo Server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShubLuci/GraphQL.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "NodeJS",
+    "Apollo",
+    "Server"
+  ],
+  "author": "Shubham Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShubLuci/GraphQL/issues"
+  },
+  "homepage": "https://github.com/ShubLuci/GraphQL#readme",
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "dotenv": "^16.4.7",
+    "graphql": "^16.10.0"
+  }
+}
