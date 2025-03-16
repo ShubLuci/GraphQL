@@ -6,7 +6,7 @@
 
     npm run dev
 
-3. Testing Query Varaible Sections with Example 
+3. Testing Query Varaible Sections with Examples
 
 query ExampleQuery {
   region(region_name: "Asia") {
@@ -29,5 +29,26 @@ query ExampleQuery {
     name,
     country_name,
     state_name
+  }
+}
+
+4. Testing Nested Related Data with Examples
+
+query GetAllCityData {
+  city(city_name: "Pune") {
+    id,
+    name,
+    state {
+      state_code,
+      name,
+      country {
+        iso2,
+        name,
+        region {
+          id,
+          name
+        }
+      }
+    }
   }
 }

@@ -3,7 +3,8 @@ const typeDefs = `#graphql
     #Defining schema for Region table
     type Region {
         id: ID!,
-        name: String
+        name: String,
+        country: [Country]
     }
 
     #Defining schema for Country table
@@ -20,13 +21,14 @@ const typeDefs = `#graphql
         currency_symbol: String,
         tld: String,
         native: String
-        region: String,
+        # region: String,
         region_id: Int,
         subregion: String,
         subregion_id: Int,
         nationality: String,
         latitude: String,
-        longitude: String
+        longitude: String,
+        region: Region
     }
 
     #Defining schema for State table
@@ -39,7 +41,8 @@ const typeDefs = `#graphql
         state_code: String,
         type: String,
         latitude: String,
-        longitude: String
+        longitude: String,
+        country: Country
     }
 
     #Defining schema for City table
@@ -54,7 +57,8 @@ const typeDefs = `#graphql
         country_name: String,
         latitude: String,
         longitude: String,
-        wikiDataId: String
+        wikiDataId: String,
+        state: State
     }
 
     # Define the Query object and keys that will be used as Object and function names in resolvers file.

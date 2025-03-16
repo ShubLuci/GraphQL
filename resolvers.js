@@ -11,7 +11,7 @@ const resolvers = {
         regions() {
             return regionsData;
         },
-        // Get Specific Region Data
+        // Get Specific Region Data (using arguments passed in GraphQL query)
         region(parent,args) {
             return regionsData.find((data) => data.name === args.region_name)
         },
@@ -19,7 +19,7 @@ const resolvers = {
         countries() {
             return countriesData;
         },
-        // Get Specific Country Data
+        // Get Specific Country Data (using arguments passed in GraphQL query)
         country(parent,args) {
             return countriesData.find((data) => data.name === args.country_name);
         },
@@ -27,7 +27,7 @@ const resolvers = {
         states() {
             return statesData;
         },
-        // Get Specific State Data
+        // Get Specific State Data (using arguments passed in GraphQL query)
         state(parent,args) {
             return statesData.find((data) => data.name === args.state_name);
         },
@@ -35,9 +35,39 @@ const resolvers = {
         cities() {
             return citiesData;
         },
-        // Get Specific City Data
+        // Get Specific City Data (using arguments passed in GraphQL query)
         city(parent,args) {
             return citiesData.find((data) => data.name === args.city_name)
+        }
+    },
+
+    // Related Data Regions <-> Country (using parent data from the top level object)
+    Region: {
+        country(parent,args) {
+            return countriesData.filter((data) => {
+                return data.region_id === parent.id
+            });
+        }
+    },
+
+    // Related Data Country <-> Regions (using parent data from the top level object)
+    Country: {
+        region(parent,args) {
+            return regionsData.find((data) => data.id === parent.region_id)
+        }
+    },
+
+    // Related Data State <-> Country (using parent data from the top level object)
+    State: {
+        country(parent,args) {
+            return countriesData.find((data) => data.iso2 === parent.country_code)
+        }
+    },
+
+    // Realted Data City <-> State (using parent data from the top level object)
+    City: {
+        state(parent,args) {
+            return statesData.find((data) => data.state_code === parent.state_code);
         }
     }
 };
