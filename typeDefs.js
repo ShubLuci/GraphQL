@@ -61,12 +61,26 @@ const typeDefs = `#graphql
     type Query {
         # Define the return data type for regions function
         regions: [Region],
+        # Define the return data type for region function, return single value
+        region(region_name: String): Region
+
+
         # Define the return data type for countries function
         countries: [Country],
+        # Define the return data type for country function, return single value
+        country(country_name: String): Country,
+
+
         # Define the return data type for states function
         states: [State],
+        # Define the return data type for state function, return single value
+        state(state_name: String): State
+
+        
         # Define the return data type for cities function
-        cities: [City]
+        cities: [City],
+        # Define the return data type for city function, return single value
+        city(city_name: String): City
     }
 `;
 
